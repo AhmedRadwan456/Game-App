@@ -43,22 +43,23 @@ const Footer = () => {
                 </div>
               </div>
 
-              <div className="col-span-2 lg:col-span-3 lg:flex lg:items-end">
+              <div className="col-span-2 lg:col-span-3">
                 <form className="w-full">
                   <label htmlFor="UserEmail" className="sr-only">
                     Email
                   </label>
 
-                  <div className="  p-2 sm:flex sm:items-center sm:gap-4">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4 p-2">
                     <input
                       type="email"
                       id="UserEmail"
                       placeholder="john@rhcp.com"
-                      className="w-full border-none p-2 rounded-lg sm:text-sm focus:text-black"
+                      className="w-full sm:flex-1 p-2 rounded-lg border-none sm:text-sm focus:text-black focus:outline-none"
                     />
+
                     <Link
                       href="/"
-                      className="mt-1 w-full rounded-lg bg-teal-500 px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-none hover:bg-teal-600 sm:mt-0 sm:w-auto sm:shrink-0"
+                      className="mt-4 sm:mt-0 w-full sm:w-auto rounded-lg bg-teal-500 px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-teal-600 sm:shrink-0"
                     >
                       <SignUpButton />
                     </Link>
