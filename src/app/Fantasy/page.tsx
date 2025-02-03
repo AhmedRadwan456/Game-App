@@ -24,7 +24,7 @@ const Fantasy = async () => {
                       <Image
                         src={game.thumbnail}
                         alt={game.title}
-                        priority={false}
+                       
                         width={600}
                         height={600}
                         className="my-3  w-96"

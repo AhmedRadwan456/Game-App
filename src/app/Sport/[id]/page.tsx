@@ -5,8 +5,11 @@ import GameDetails, {
   getDataDetails,
 } from "@/app/_component/GameApiDetails/GameApiDetails";
 
-const SportGameDetails = async ({ params }: { params: GameDetails }) => {
-  const ID = params.id;
+type PageProps = {
+  params: Promise<GameDetails>;
+};
+const SportGameDetails = async ({ params }: PageProps) => {
+  const ID = (await params).id;
 
   if (!ID) {
     return <div>Error: Game ID is not provided.</div>;
@@ -23,7 +26,7 @@ const SportGameDetails = async ({ params }: { params: GameDetails }) => {
               className=" w-auto h-auto rounded-md"
               src={Details.thumbnail}
               alt={Details.title}
-              priority={false}
+           
               width={600}
               height={600}
             />

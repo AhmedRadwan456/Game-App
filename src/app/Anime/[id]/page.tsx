@@ -5,14 +5,17 @@ import GameDetails, {
   getDataDetails,
 } from "@/app/_component/GameApiDetails/GameApiDetails";
 
-const AnimeGameDetails = async ({ params }: { params: GameDetails }) => {
-  const ID = params.id;
+type PageProps = {
+  params: Promise<GameDetails>;
+};
+const AnimeGameDetails = async ({ params }: PageProps) => {
+  const ID =  (await params).id;
 
   if (!ID) {
     return <div>Error: Game ID is not provided.</div>;
   }
 
-  const Details = await getDataDetails(Number(ID));
+  const Details: GameDetails = await getDataDetails(Number(ID));
 
   return (
     <div className=" mx-auto max-w-2xl px-2 py-8 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
@@ -23,7 +26,7 @@ const AnimeGameDetails = async ({ params }: { params: GameDetails }) => {
               className=" w-auto h-auto rounded-md"
               src={Details.thumbnail}
               alt={Details.title}
-              priority={false}
+             
               width={600}
               height={600}
             />
@@ -71,5 +74,7 @@ const AnimeGameDetails = async ({ params }: { params: GameDetails }) => {
     </div>
   );
 };
+
+
 
 export default AnimeGameDetails;
